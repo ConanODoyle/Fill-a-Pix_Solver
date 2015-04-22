@@ -10,7 +10,7 @@ public class GUI {
 	private JFrame frame;
 	private JPanel buttonPanel;
 	private Board board;
-	
+	\\hello
 	private String boardState = "e"; //e for edit, s for slow solve
 	
 	public void init(Board board) throws InterruptedException{

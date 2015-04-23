@@ -16,7 +16,7 @@ public class NumberPopup
     for(int i=0;i<10;i++)
     {
     }
-    number.addMouseListener(New MouseListener())
+    number.addMouseListener(new MouseListener())
     {
     }
   }

@@ -8,39 +8,37 @@ public class NumButton extends JButton implements MouseListener
   
   public NumButton(int num)
   {
-    super();
-    this.number = num;
-		this.setBackground(Color.WHITE);
-		this.setPreferredSize(new Dimension(15, 15));
-		this.setForeground(Color.BLACK);
-	}
-	@Override
-	public void mouseClicked(MouseEvent arg0) {
+  	super();
+  	this.number = num;
+  	this.setBackground(Color.WHITE);
+  	this.setPreferredSize(new Dimension(15, 15));
+  	this.setForeground(Color.BLACK);
+  	this.setText(num)
+  }
+  @Override
+  public void mouseClicked(MouseEvent arg0) {
+  	// TODO Auto-generated method stub
+  	
+  	
+  }
+  @Override
+  public void mouseEntered(MouseEvent arg0) {
+	// TODO Auto-generated method stub
+  	
+  }
+  @Override
+  public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
+  	
+  }
+  @Override
+  public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
+  	
+  }
+  @Override
+  public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+  	
+  }
 }

@@ -21,7 +21,13 @@ public class GUI {
 	}
 	
 	public void openFile(){
-		
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("gif","jpg","png");
+		file.setFileFilter(filter);
+		int val = file.showOpenDialog(GUI.this);
+		if(val == JFileChooser.APPROVE_OPTION)
+		{
+			filer=file.getSelectedFile()
+		}
 	}
 	
 	public void openGrid(){

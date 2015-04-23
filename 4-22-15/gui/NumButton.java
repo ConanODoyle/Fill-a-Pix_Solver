@@ -6,7 +6,8 @@ public class NumButton extends JButton implements MouseListener
 {
   int number;
   GUI gui;
-  public NumButton(int num, GUI gui)
+  NumberPopup numberPopup;
+  public NumButton(int num,NumberPopup numberPopup, GUI gui)
   {
   	super();
   	this.number = num;
@@ -15,12 +16,11 @@ public class NumButton extends JButton implements MouseListener
   	this.setForeground(Color.BLACK);
   	this.setText(num)
   	this.gui = gui;
+  	this.numberPopup = numberPopup;
   }
   @Override
   public void mouseClicked(MouseEvent arg0) {
   	// TODO Auto-generated method stub
-  	
-  	
   }
   @Override
   public void mouseEntered(MouseEvent arg0) {
@@ -29,17 +29,16 @@ public class NumButton extends JButton implements MouseListener
   }
   @Override
   public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+  	//check if needed 
   	
   }
   @Override
   public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+  	// check if needed
   	
   }
   @Override
   public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-  	
+	numberPopup.numInput(this.num);
   }
 }

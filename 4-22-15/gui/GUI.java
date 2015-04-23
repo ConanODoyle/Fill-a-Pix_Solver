@@ -1,4 +1,5 @@
 package gui;
+import javax.swing.filechooser.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,7 +11,7 @@ public class GUI {
 	private JFrame frame;
 	private JPanel buttonPanel;
 	private Board board;
-	\\hello
+	private JFileChooser file;
 	private String boardState = "e"; //e for edit, s for slow solve
 	
 	public void init(Board board) throws InterruptedException{

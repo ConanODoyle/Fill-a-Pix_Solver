@@ -17,7 +17,14 @@ public class NumberPopup
     
     for(int i=0;i<10;i++)
     {
-      content.add(new NumButton(i,gui));
+      content.add(new NumButton(i,this,gui));
     }
+    content.add(new NumButton(null,this,gui);
+  }
+  
+  void numInput(int n)
+  {
+    gui.grid[this.y][this.x] = n;
+    this.dispose();
   }
 }

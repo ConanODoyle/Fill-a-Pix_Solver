@@ -5,8 +5,8 @@ import javax.swing.JButton:
 public class NumButton extends JButton implements MouseListener
 {
   int number;
-  
-  public NumButton(int num)
+  GUI gui;
+  public NumButton(int num, GUI gui)
   {
   	super();
   	this.number = num;
@@ -14,6 +14,7 @@ public class NumButton extends JButton implements MouseListener
   	this.setPreferredSize(new Dimension(15, 15));
   	this.setForeground(Color.BLACK);
   	this.setText(num)
+  	this.gui = gui;
   }
   @Override
   public void mouseClicked(MouseEvent arg0) {

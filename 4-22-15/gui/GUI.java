@@ -15,10 +15,15 @@ public class GUI {
 	private Board board;
 	private String boardState = "e"; //e for edit, s for slow solve
 	
+	public GUI()
+	{
+		frame = new JFrame("Solver stuff");
+		
+	}
 	public void init(Board board) throws InterruptedException{
 		this.board = board;
-		
 		StartMenu init = new StartMenu(this);
+		frame.add(init);
 	}
 	
 	public void openGrid(){

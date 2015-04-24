@@ -57,6 +57,7 @@ public class DiaPopup extends JFrame
 			}
 		});
     hold.add(input);
+    this.pack;
   }
 }
     

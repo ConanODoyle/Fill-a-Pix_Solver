@@ -14,15 +14,25 @@ public class GridButton extends JButton implements MouseListener{
 	public static final Color FILLED_COLOR = new Color(10, 10, 10);
 	public boolean isClicking = false;
 	public boolean isOver = false;
+	int x;
+	int y;
+	GUI gui;
 	
-	public GridButton(int num){
+	public GridButton(GUI gui,int num,int x, int y){
 		super();
 		this.setBackground(Color.WHITE);
 		this.setPreferredSize(new Dimension(15, 15));
 		this.setForeground(Color.BLACK);
 		this.setFocusable(true);
+		this.x = x;
+		this.y = y;
+		this.gui = gui;
 		if (num >= 0){
 			buttonText = "" + num;
+		}
+		else
+		{
+			this.changeText(-1);
 		}
 		this.setText(buttonText);
 	}
@@ -64,6 +74,7 @@ public class GridButton extends JButton implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		if (isClicking && isOver){
+			NumberPopup num = new NumberPopup(gui,this.x,this.y);
 		}
 		isClicking = false;
 	}

@@ -21,6 +21,8 @@ public class NumberPopup extends JFrame
       content.add(new NumButton(i,this,gui));
     }
     content.add(new NumButton(null,this,gui);
+    this.pack();
+    this.setVisible(true);
   }
   
   void numInput(int n)

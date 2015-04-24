@@ -1,39 +1,53 @@
 package solver;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Board {
 	private Square[][] grid;
 	private int totalSquares = 0;
+	private File file = null;
+	
+	public Board(File file){
+		this.file = file;
+	}
 	
 	public void runmain() throws Exception{
-		Scanner in = new Scanner(System.in);
-		System.out.print("Enter the file to process: ");
-		//String f = in.nextLine();
+		int width = 0; //in.nextInt();
+		int height = 0; //in.nextInt();
 		
-		//replace with autoscanner
-		System.out.print("Enter the grid dimensions (width, height): \n");
-		int width = 15; //in.nextInt();
-		int height = 15; //in.nextInt();
+		ArrayList<ArrayList<Square>> iarray = new ArrayList<ArrayList<Square>>();
+		
+		Scanner filescan = new Scanner(file);
+		filescan.useDelimiter("!");
+		while (filescan.hasNext()){
+			ArrayList<Square> temp = new ArrayList<Square>();
+			String line = filescan.next();
+			Scanner linescan = new Scanner(line);
+			while (linescan.hasNextInt()){
+				temp.add(new Square(linescan.nextInt(), false));
+			}
+			linescan.close();
+			iarray.add(temp);
+			height++;
+		}
+		filescan.close();
+		width = iarray.get(0).size();
+		
 		grid = new Square[height][width];
-		
-		Scanner file = new Scanner(new File("puzzle1"));
 		for (int y = 0; y < height; y++){
 			for (int x = 0; x < width; x++){
-				grid[y][x] = new Square(file.nextInt(), false);
+				grid[y][x] = iarray.get(y).get(x).getCopy();
 				if (grid[y][x].getNumber() >= 0)
 					setTotalSquares(getTotalSquares() + 1);
 			}
 		}
-		file.close();
+		System.out.println(height + " " + width);
 		
 		printGrid(grid);
 		Square[][] solved = Solver.solve(grid, totalSquares);
 		printGrid(solved);
-		
-		in.close();
 	}
 	
 	public Square[][] getGrid() {

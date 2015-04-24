@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-public class StartMenu {
+public class StartMenu extends Jpanel{
 	private JFrame initFrame = new JFrame("Start");
 	private JPanel contentPanel = new JPanel();
 	private JPanel initPanel = new JPanel();

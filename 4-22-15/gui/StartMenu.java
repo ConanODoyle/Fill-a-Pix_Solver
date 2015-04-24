@@ -26,9 +26,13 @@ public class StartMenu {
 	private GUI gui;
 	private int isClicking = 0;
 	private int isOverButton = 0;
+
+	private static final Border FUNSELECTED = BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createEmptyBorder(5, 10, 5, 10));
+	private static final Border FSELECTED = BorderFactory.createCompoundBorder(BorderFactory.createLoweredBevelBorder(), BorderFactory.createEmptyBorder(5, 10, 5, 10));
 	
-	private static final Border UNSELECTED = BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createEmptyBorder(5, 10, 5, 10));
-	private static final Border SELECTED = BorderFactory.createCompoundBorder(BorderFactory.createLoweredBevelBorder(), BorderFactory.createEmptyBorder(5, 10, 5, 10));
+	private static final Border GUNSELECTED = BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5));
+	private static final Border GSELECTED = BorderFactory.createCompoundBorder(BorderFactory.createLoweredBevelBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5));
+	
 	
 	public StartMenu(GUI gui){	
 		this.gui = gui;	
@@ -47,13 +51,13 @@ public class StartMenu {
 		initPanel.setLayout(new BoxLayout(initPanel, BoxLayout.Y_AXIS));
 		initPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder(""), BorderFactory.createEmptyBorder(15, 5, 15, 5)));
 		
-		file.setBorder(UNSELECTED);
+		file.setBorder(FUNSELECTED);
 		file.setFocusable(false);
 		file.setAlignmentX(Panel.CENTER_ALIGNMENT);
 		file.setMargin(new Insets(15, 15, 15, 15));
 		file.setBackground(new Color(230,230,230));
 
-		grid.setBorder(UNSELECTED);
+		grid.setBorder(GUNSELECTED);
 		grid.setFocusable(false);
 		grid.setAlignmentX(Panel.CENTER_ALIGNMENT);
 		grid.setMargin(new Insets(15, 15, 15, 15));
@@ -68,20 +72,20 @@ public class StartMenu {
 			public void mouseEntered(MouseEvent arg0) {
 				isOverButton = 1;
 				if (isClicking == 1){
-					file.setBorder(SELECTED);
+					file.setBorder(FSELECTED);
 				}
 			}
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				isOverButton = 0;
-				file.setBorder(UNSELECTED);
+				file.setBorder(FUNSELECTED);
 			}
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				isClicking = 1;
-				file.setBorder(SELECTED);
+				file.setBorder(FSELECTED);
 			}
 
 			@Override
@@ -90,7 +94,7 @@ public class StartMenu {
 					System.out.println("file");
 				}
 				isClicking = 0;	
-				file.setBorder(UNSELECTED);
+				file.setBorder(FUNSELECTED);
 			}
 		});
 		grid.addMouseListener(new MouseListener(){
@@ -102,20 +106,20 @@ public class StartMenu {
 			public void mouseEntered(MouseEvent arg0) {
 				isOverButton = 2;
 				if (isClicking == 2){
-					grid.setBorder(SELECTED);
+					grid.setBorder(GSELECTED);
 				}
 			}
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				isOverButton = 0;
-				grid.setBorder(UNSELECTED);
+				grid.setBorder(GUNSELECTED);
 			}
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				isClicking = 2;
-				grid.setBorder(SELECTED);
+				grid.setBorder(GSELECTED);
 			}
 
 			@Override
@@ -124,7 +128,7 @@ public class StartMenu {
 					System.out.println("grid");
 				}
 				isClicking = 0;	
-				grid.setBorder(UNSELECTED);
+				grid.setBorder(GUNSELECTED);
 			}
 		});
 		

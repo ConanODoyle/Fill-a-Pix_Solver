@@ -13,9 +13,12 @@ public class FilePopup
   private JFrame mainFrame;
   private JPanel hold;
   private JTextField irl;
+  Gui gui;
   
   public FilePopup(GUI gui)
   {
+    this.gui = gui;
+    mainFrame.setContentPane(hold);
     
   }
 }

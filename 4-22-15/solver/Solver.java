@@ -3,7 +3,7 @@ package solver;
 public class Solver {
 	public static Square[][] solve(Square[][] grid, int totalSquares) throws Exception{
 		Square[][] answer = copyArray(grid);
-		System.out.println("\n\n" + answer.length + " " + answer[0].length);
+		//System.out.println("\n\n" + answer.length + " " + answer[0].length);
 		
 		int completed = 0;
 		for (int i = 0; i < totalSquares; i++){
@@ -22,7 +22,7 @@ public class Solver {
 					}
 				}
 			}
-			System.out.println(completed);
+			System.out.println("Total squares completed: " + completed);
 			if (completed == totalSquares)
 				break;
 			else if (completed > totalSquares)
@@ -41,18 +41,6 @@ public class Solver {
 		}
 		return result;
 	}
-
-	private static void castIllegal3x3(int x, int y, Square[][] grid, boolean illegal){
-		int[] ymod = {1, 1, 1, 0, -1, -1, -1, 0};
-		int[] xmod = {1, 0 ,-1, -1, -1, 0, 1, 1};
-		
-		for (int i = 0; i < 9; i++){
-			int x1 = x + xmod[i];
-			int y1 = y + ymod[i];
-			if (x1 >= 0 && y1 >= 0 && x1 < grid[0].length && y1 < grid.length && grid[x1][y1].isFilled() == false)
-				grid[y1][x1].setIllegal(illegal);
-		}
-	}
 	
 	private static String checkNumberAmbiguous(int x, int y, Square[][] grid) throws Exception{
 		if (grid[y][x].getNumber() < 0)
@@ -62,7 +50,7 @@ public class Solver {
 		int fcounter = 0;
 		int icounter = 0;
 		int ocounter = 0;
-		int tpsquares = 9;
+		int totalsquares = 9;
 		
 		for (int i = 0; i < 9; i++){
 			int x1 = x + xmod[i];
@@ -75,7 +63,7 @@ public class Solver {
 				else
 					ocounter++;
 			} else {
-				tpsquares--;
+				totalsquares--;
 			}
 		}
 		//System.out.println("(" + x + "," + y + ") : O(" + ocounter + ") F(" + fcounter + ") I/T(" + icounter + "," + tpsquares + ")");
@@ -83,7 +71,7 @@ public class Solver {
 			return "y1";
 		if (ocounter + fcounter == grid[y][x].getNumber())
 			return "y";
-		if (tpsquares-icounter == grid[y][x].getNumber())
+		if (totalsquares-icounter == grid[y][x].getNumber())
 			return "y";
 		return "n";
 	}

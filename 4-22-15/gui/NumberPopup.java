@@ -25,7 +25,7 @@ public class NumberPopup extends JFrame
   
   void numInput(int n)
   {
-    gui.grid[this.y][this.x] = n;
+    gui.setButtonValue(this.y,this.x,n);
     this.dispose();
   }
 }

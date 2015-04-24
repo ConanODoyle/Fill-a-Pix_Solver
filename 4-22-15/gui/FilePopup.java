@@ -20,5 +20,6 @@ public class FilePopup
     this.gui = gui;
     mainFrame.setContentPane(hold);
     
+    hold.setlayout(new BoxLayout (hold,BoxLayout.Y_AXIS);
   }
 }

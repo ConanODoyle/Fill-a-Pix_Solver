@@ -19,6 +19,8 @@ public class FilePopup
   
   public FilePopup(GUI gui)
   {
+    mainFrame = new JFrame("Enter a file!");
+    hold = new JPanel();
     this.gui = gui;
     mainFrame.setContentPane(hold);
     

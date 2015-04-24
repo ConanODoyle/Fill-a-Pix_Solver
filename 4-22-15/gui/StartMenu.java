@@ -126,6 +126,7 @@ public class StartMenu extends Jpanel{
 			public void mouseReleased(MouseEvent arg0) {
 				if (isClicking == 2 && isOverButton == 2){
 					System.out.println("grid");
+					DiaPopup popup = new DiaPopup(gui);
 				}
 				isClicking = 0;	
 				grid.setBorder(GUNSELECTED);

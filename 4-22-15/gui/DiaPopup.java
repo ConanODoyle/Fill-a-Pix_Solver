@@ -33,6 +33,30 @@ public class DiaPopup extends JFrame
     JLabel textY = new JLabel("height of grid in squares");
     hold.add(textY);
     hold.add(maxY);
+    
+    input = new JButton("go!");
+    input.addMouseListener(new MouseListener(){
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+			}
+		});
+    hold.add(input);
   }
 }
     

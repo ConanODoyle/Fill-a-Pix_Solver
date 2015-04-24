@@ -17,7 +17,7 @@ public class DiaPopup extends JFrame
     super("Enter size!");
     hold = new JPanel();
     this.setContentPane(hold);
-    
+    this.gui=gui;
     hold.setLayout(new BoxLayout(titlePanel, BoxLayout.Y_AXIS));
     NumberFormat format = NumberFormat.getInstance();
     NumberFormatter formatter = new NumberFormatter(format);
@@ -54,10 +54,14 @@ public class DiaPopup extends JFrame
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
+				gui.setDimensions(maxX.getValue(),maxY.getValue());
+				gui.openGUI();
+				this.dispose()
 			}
 		});
     hold.add(input);
     this.pack;
+    this.setVisible();
   }
 }
     

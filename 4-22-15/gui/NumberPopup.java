@@ -3,17 +3,18 @@ package gui;
 import javax.swing.Jpanel;
 import javax.swing.Jbutton;
 
-public class NumberPopup
+public class NumberPopup extends JFrame
 {
-  JFrame mainFrame = new JFrame("Pick one!");
   JPanel content = new JPanel()
   int posX;
   int posY;
   GUI gui;
   public NumberPopup(GUI gui,int x, int y)
   {
+    super("Pick One!")
     this.gui = gui;
-    mainFrame.setContentPane(content);
+    this.setContentPane(content);
+    content.setLayout(new GridLayout(0,3));
     
     for(int i=0;i<10;i++)
     {

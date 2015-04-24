@@ -36,6 +36,8 @@ public class FilePopup
     accept.addActionLister(this);
     hold.add(open);
     hold.add(accept);
+    mainFrame.pack();
+    mainFrame.setVisible(true);
   }
   public void actionPerformed(ActionEvent event)
   {

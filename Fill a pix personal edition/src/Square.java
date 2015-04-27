@@ -4,13 +4,14 @@ public class Square {
 	private boolean illegal;
 	private boolean isComplete = false;
 	
+	public Square(int n){
+		this(n, false);
+	}
+	
 	public Square(int n, boolean f){
 		this(n, f, false, false);
 	}
-	public Square()
-	{
-		
-	}
+	
 	public Square(int n, boolean f, boolean i, boolean c){
 		setNumber(n);
 		setFilled(f);

@@ -11,7 +11,7 @@ public class Board {
 		this.file = file;
 	}
 	
-	public void runmain() throws Exception{
+	public void solveFile() throws Exception{
 		int width = 0; //in.nextInt();
 		int height = 0; //in.nextInt();
 		
@@ -45,6 +45,18 @@ public class Board {
 		
 		printGrid(grid);
 		Square[][] solved = Solver.solve(grid, totalSquares);
+		printGrid(solved);
+	}
+	
+	public void solveArray(int[][] array){
+		Square[][] solved = new Square[array.length][array[0].length];
+		for (int i = 0; i < array.length; i++){
+			for (int j = 0; j < array[i].length; j++){
+				solved[i][j] = new Square(array[i][j]);
+			}
+		}
+		printGrid(solved);
+		solved = Solver.solve(solved);
 		printGrid(solved);
 	}
 	

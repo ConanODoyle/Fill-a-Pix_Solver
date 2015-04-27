@@ -16,6 +16,7 @@ public class GridButton extends JButton implements MouseListener{
 	int x;
 	int y;
 	GUI gui;
+	GridButton thisbutton = this;
 	
 	public GridButton(GUI gui,int num,int x, int y){
 		super();
@@ -84,6 +85,7 @@ public class GridButton extends JButton implements MouseListener{
 	}
 
 	public void mouseReleased(MouseEvent arg0) {
-			NumberPopup num = new NumberPopup(gui,this.x,this.y);
+		NumberPopup num = new NumberPopup(gui,thisbutton,this.x,this.y);
+
 }
 }

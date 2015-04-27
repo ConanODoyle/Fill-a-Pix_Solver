@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
@@ -9,7 +10,8 @@ public class GUI {
 	private int gridheight;
 	private int gridwidth;
 	private JFrame frame;
-	private JPanel buttonPanel;
+	private JPanel puzzPanel;
+		private JPanel buttonPanel;
 	private Board board;
 	private int[][] grid;
 	private String boardState = "e"; //e for edit, s for slow solve
@@ -24,17 +26,25 @@ public class GUI {
 	@SuppressWarnings("null")
 	public void openGUI()
 	{
-		frame = new JFrame("Grids!");
+		frame = new JFrame("Fill-a-Pix Solver");
+		
+		
 		buttonPanel = new JPanel();
+		puzzPanel = new JPanel();
 		buttonPanel.setLayout(new GridLayout(gridheight,gridwidth));
-		for(int i=0;i<gridheight-1;i++)
+		
+		puzzPanel.setBorder(BorderFactory.createTitledBorder("Grid"));
+		for(int i = 0; i < gridheight; i++)
 		{
-			for(int j=0;j<this.gridwidth-1;j++)
+			for(int j = 0; j < this.gridwidth; j++)
 			{
-				buttonPanel.add(new GridButton(this,10,j,i));
+				buttonPanel.add(new GridButton(this, 10, j, i));
 			}
 		}
-		frame.add(buttonPanel);
+		buttonPanel.setPreferredSize(new Dimension(gridwidth*20, gridheight*20));
+		
+		puzzPanel.add(buttonPanel);
+		frame.add(puzzPanel);
 		frame.pack();
 		frame.setVisible(true);
 	}

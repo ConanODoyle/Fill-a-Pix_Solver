@@ -49,7 +49,7 @@ public class FilePopup
   {
     if(event.getSource() == open)
     {
-      int returnVal = filer.showOpenDialog(FilePopup.this);
+      int returnVal = filer.showOpenDialog(mainFrame);
       if(returnVal == JFileChooser.APPROVE_OPTION)
       {
        file = filer.getSelectedFile();

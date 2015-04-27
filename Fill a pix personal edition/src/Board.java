@@ -48,7 +48,7 @@ public class Board {
 		printGrid(solved);
 	}
 	
-	public void solveArray(int[][] array){
+	public void solveArray(int[][] array) throws Exception{
 		Square[][] solved = new Square[array.length][array[0].length];
 		for (int i = 0; i < array.length; i++){
 			for (int j = 0; j < array[i].length; j++){
@@ -56,7 +56,7 @@ public class Board {
 			}
 		}
 		printGrid(solved);
-		solved = Solver.solve(solved);
+		solved = Solver.solve(solved, solved.length*solved[0].length);
 		printGrid(solved);
 	}
 	

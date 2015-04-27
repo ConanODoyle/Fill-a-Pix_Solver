@@ -16,9 +16,6 @@ public class GUI {
 	private int[][] grid;
 	private String boardState = "e"; //e for edit, s for slow solve
 	
-	public GUI()
-	{
-	}
 	public void init() throws InterruptedException{
 		StartMenu init = new StartMenu(this);
 	}
@@ -32,13 +29,15 @@ public class GUI {
 		buttonPanel = new JPanel();
 		puzzPanel = new JPanel();
 		buttonPanel.setLayout(new GridLayout(gridheight,gridwidth));
+		grid = new int[this.gridheight][this.gridwidth];
 		
 		puzzPanel.setBorder(BorderFactory.createTitledBorder("Grid"));
 		for(int i = 0; i < gridheight; i++)
 		{
 			for(int j = 0; j < this.gridwidth; j++)
 			{
-				buttonPanel.add(new GridButton(this, 10, j, i));
+				buttonPanel.add(new GridButton(this, -1, j, i));
+				grid[i][j] = -1;
 			}
 		}
 		buttonPanel.setPreferredSize(new Dimension(gridwidth*20, gridheight*20));
@@ -55,7 +54,7 @@ public class GUI {
 	}
 	
 	public void setButtonValue(int x, int y, int value){ //called by NumPanel NumButtons
-		
+		this.grid[y][x] = value;
 	}
 	public void solve()
 	{

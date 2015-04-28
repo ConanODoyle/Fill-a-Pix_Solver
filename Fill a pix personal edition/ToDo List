@@ -1,3 +1,6 @@
+Sam's current goal:
+Hugh's current goal: save files
+
 DiaPopup:
 Add WindowListeners to accept "Enter" key as validation
 Make error message text appear when attempt to press Enter while the fields aren't full

@@ -1,0 +1,22 @@
+DiaPopup:
+Add WindowListeners to accept "Enter" key as validation
+Make error message text appear when attempt to press Enter while the fields aren't full
+Reformat so it actually looks good. That way Joe the non-coder won't feel like like this thing is trash.
+
+GUI:
+Add "ButtonRefresh" method where a Square[][] or int[][] grid is processed to something Joe can see.
+Design a scaling method so the buttonGrid will enlarge when Aunt Marge makes the window bigger to help with her eyesight
+Add a sidepanel with options (Save a file! Import a file! Resize the thing!). Duh. Goes with scaling thing above.
+	Save a file will come later...
+
+NumberPopup:
+Add KeyboardListener. Spacebar and backspace will be the "empty" square.
+
+FilePopup:
+Make error message text appear when attempt to press Enter and the file isn't where its supposed to be. On repeated failures, show
+  extra message to clarify where file should be??
+
+Solver:
+Add an incremental solving thing. Arraylist of Commands, or something like that.
+	To go with that, add "isHighlighted" to Square for that stuff. Make the GUI show it.
+Make the GUI do something when the puzzle is ambiguous. Look for the "Ambiguous Puzzle" println in Solver to find out where to put it.

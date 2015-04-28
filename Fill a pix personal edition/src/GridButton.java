@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
@@ -85,7 +84,7 @@ public class GridButton extends JButton implements MouseListener{
 	}
 
 	public void mouseReleased(MouseEvent arg0) {
-		NumberPopup num = new NumberPopup(gui,thisbutton,this.x,this.y);
+		NumberPopup num = new NumberPopup(gui, thisbutton, this.x, this.y);
 
-}
+	}
 }

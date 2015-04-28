@@ -14,55 +14,55 @@ import javax.swing.JTextField;
 
 public class FilePopup
 {
-  private JFileChooser filer;
-  public File file;
-  private JFrame mainFrame;
-  private JPanel hold;
-  private JTextField irl;
-  private JButton open;
-  private JButton accept;
-  GUI gui;
-  
-  public FilePopup(GUI gui)
-  {
-    mainFrame = new JFrame("Enter a file!");
-    hold = new JPanel();
-    this.gui = gui;
-    mainFrame.setContentPane(hold);
+    private JFileChooser filer;
+    public File file;
+    private JFrame mainFrame;
+    private JPanel hold;
+    private JTextField irl;
+    private JButton open;
+    private JButton accept;
+    GUI gui;
     
-    hold.setLayout(new BoxLayout (hold,BoxLayout.Y_AXIS));
-    irl = new JTextField();
-    irl.setEditable(false);
-    hold.add(irl);
-    
-    filer = new JFileChooser();
-    open = new JButton("Open");
-    accept = new JButton("Yes");
-    open.addActionListener((ActionListener) this);
-    accept.addActionListener((ActionListener) this);
-    hold.add(open);
-    hold.add(accept);
-    mainFrame.pack();
-    mainFrame.setVisible(true);
-  }
-  public void actionPerformed(ActionEvent event)
-  {
-    if(event.getSource() == open)
+    public FilePopup(GUI gui)
     {
-      int returnVal = filer.showOpenDialog(mainFrame);
-      if(returnVal == JFileChooser.APPROVE_OPTION)
-      {
-       file = filer.getSelectedFile();
-       irl.setText(file.getName());
-      }
+        mainFrame = new JFrame("Enter a file!");
+        hold = new JPanel();
+        this.gui = gui;
+        mainFrame.setContentPane(hold);
+        
+        hold.setLayout(new BoxLayout (hold,BoxLayout.Y_AXIS));
+        irl = new JTextField();
+        irl.setEditable(false);
+        hold.add(irl);
+        
+        filer = new JFileChooser();
+        open = new JButton("Open");
+        accept = new JButton("Yes");
+        open.addActionListener((ActionListener) this);
+        accept.addActionListener((ActionListener) this);
+        hold.add(open);
+        hold.add(accept);
+        mainFrame.pack();
+        mainFrame.setVisible(true);
     }
-    else if(event.getSource() == accept)
+    public void actionPerformed(ActionEvent event)
     {
-      if(file!= null)
-      {
-        gui.setFile(file);
-      }
-      mainFrame.dispose();
+        if(event.getSource() == open)
+        {
+            int returnVal = filer.showOpenDialog(mainFrame);
+            if(returnVal == JFileChooser.APPROVE_OPTION)
+            {
+             file = filer.getSelectedFile();
+             irl.setText(file.getName());
+            }
+        }
+        else if(event.getSource() == accept)
+        {
+            if(file!= null)
+            {
+                gui.setFile(file);
+            }
+            mainFrame.dispose();
+        }
     }
-  }
 }

@@ -58,8 +58,16 @@ public class FilePopup
         {
             if(file!= null)
             {
+<<<<<<< HEAD
+=======
+                gui.setFile(file);
+>>>>>>> origin/master
             }
             mainFrame.dispose();
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master

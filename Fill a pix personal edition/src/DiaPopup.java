@@ -17,14 +17,22 @@ public class DiaPopup extends JFrame
     private JFormattedTextField maxY;
     private JButton input;
     private GUI gui;
+<<<<<<< HEAD
     private StartMenu startmenu;
     
     public DiaPopup(GUI gui,StartMenu startmenu)
+=======
+    
+    public DiaPopup(GUI gui)
+>>>>>>> origin/master
     {
         super("Enter size!");
         
         this.gui=gui;
+<<<<<<< HEAD
         this.startmenu = startmenu;
+=======
+>>>>>>> origin/master
         
         hold = new JPanel();
         hold.setLayout(new BoxLayout(hold, BoxLayout.Y_AXIS));
@@ -79,4 +87,11 @@ public class DiaPopup extends JFrame
         this.pack();
         this.setVisible(true);
     }
+<<<<<<< HEAD
 }
+=======
+}
+        
+    
+    
+>>>>>>> origin/master

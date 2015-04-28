@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.Panel;
+import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
@@ -144,6 +145,8 @@ public class StartMenu{
 		initFrame.pack();
 		initFrame.setVisible(true);
 		initFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		initFrame.setLocation(dim.width/2-initFrame.getSize().width/2, dim.height/2-initFrame.getSize().height/2);
 	}
 	
 	public void closeScreen(){

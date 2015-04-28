@@ -1,5 +1,8 @@
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -14,9 +17,12 @@ public class GUI {
 	private JPanel puzzPanel;
 		private JPanel buttonPanel;
 	private Board board;
+	private SidePanel side;
 	private JButton solve;
 	private int[][] grid;
 	private GridButton[][] gridb;
+	private boolean solved = false;
+	private Square[][] solution;
 	private String boardState = "e"; //e for edit, s for slow solve
 	
 	public void init() throws InterruptedException{
@@ -47,11 +53,41 @@ public class GUI {
 		buttonPanel.setPreferredSize(new Dimension(gridwidth*20, gridheight*20));
 		
 		puzzPanel.add(buttonPanel);
-		puzzPanel.add(new SidePanel(this));
+		side =new SidePanel(this);
+		puzzPanel.add(side);
 		
 		frame.add(puzzPanel);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
+		
+		frame.addComponentListener(new ComponentListener()
+		{
+			 public void componentResized(ComponentEvent e)
+			 {
+
+					buttonPanel.setPreferredSize(new Dimension(frame.getSize().width/3+gridwidth*20, frame.getSize().height/3+gridheight*20));
+			 }
+
+			@Override
+			public void componentHidden(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void componentMoved(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void componentShown(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		frame.setVisible(true);
 	}
 	
@@ -65,14 +101,17 @@ public class GUI {
 	}
 	public void solve()
 	{
-		board = new Board();
-		try {
-			board.solveArray(grid);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(!solved)
+		{
+			board = new Board();
+			try {
+				board.solveArray(grid);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			solution = board.getGrid();
 		}
-		Square[][] solution = board.getGrid();
 		for(int i=0;i<this.gridheight;i++)
 		{
 			for(int j=0;j<this.gridwidth;j++)
@@ -83,5 +122,8 @@ public class GUI {
 				}
 			}
 		}
+		side.solved();
+		if(solved) solved = false;
+		else solved = true;
 	}
 }

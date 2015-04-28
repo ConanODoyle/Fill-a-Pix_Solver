@@ -1,6 +1,7 @@
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -12,6 +13,7 @@ public class SidePanel extends JPanel{
 	private JPanel panel;
 	private JTextField field;
 	private JButton solvebutton;
+	private boolean solved;
 	private GUI gui;
 	
 	public SidePanel(GUI gui)
@@ -22,7 +24,8 @@ public class SidePanel extends JPanel{
 		field = new JTextField("Fill a pix solver thing WIP");
 		this.add(field);
 		
-		solvebutton = new JButton("Solve");
+		solvebutton = new JButton("Solve!");
+		solvebutton.setFont(new Font("sans serif", Font.BOLD, 12));
 		solvebutton.setPreferredSize(new Dimension(50,50));
 		this.add(solvebutton);
 		solvebutton.addMouseListener(new MouseListener(){
@@ -43,5 +46,16 @@ public class SidePanel extends JPanel{
 			}
 
 		});
+	}
+	public void solved()
+	{
+		if(solved)
+		{
+			this.solvebutton.setText("Solved!");
+		}
+		else
+		{
+			this.solvebutton.setText("Reverse!");
+		}
 	}
 }

@@ -20,3 +20,6 @@ Solver:
 Add an incremental solving thing. Arraylist of Commands, or something like that.
 	To go with that, add "isHighlighted" to Square for that stuff. Make the GUI show it.
 Make the GUI do something when the puzzle is ambiguous. Look for the "Ambiguous Puzzle" println in Solver to find out where to put it.
+
+Windows
+Add an image for buttons and such that will make this look good and not silly.

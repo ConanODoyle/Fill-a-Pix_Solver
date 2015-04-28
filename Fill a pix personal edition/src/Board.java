@@ -7,6 +7,11 @@ public class Board {
 	private int totalSquares = 0;
 	private File file = null;
 	
+	public Board()
+	{
+		
+	}
+	
 	public Board(File file){
 		this.file = file;
 	}
@@ -55,9 +60,11 @@ public class Board {
 				solved[i][j] = new Square(array[i][j]);
 			}
 		}
+		
 		printGrid(solved);
 		solved = Solver.solve(solved, solved.length*solved[0].length);
 		printGrid(solved);
+		this.grid = solved;
 	}
 	
 	public Square[][] getGrid() {

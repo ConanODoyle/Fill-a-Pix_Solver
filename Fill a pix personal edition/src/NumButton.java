@@ -35,9 +35,7 @@ public class NumButton extends JButton
 		}
 
 		public void mouseReleased(MouseEvent arg0) {
-			System.out.println(number);
 			numberPopup.numInput(number);
-			System.out.println(number);
 			
 		}
 

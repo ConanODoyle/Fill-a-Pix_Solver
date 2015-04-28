@@ -12,19 +12,11 @@ public class GridButton extends JButton implements MouseListener{
 	public static final Color FILLED_COLOR = new Color(10, 10, 10);
 	public boolean isClicking = false;
 	public boolean isOver = false;
-<<<<<<< HEAD
 	private int x;
 	private int y;
 	private GUI gui;
 	private GridButton thisbutton;
 	private NumberPopup num;
-=======
-	int x;
-	int y;
-	GUI gui;
-	GridButton thisbutton = this;
-	
->>>>>>> origin/master
 	public GridButton(GUI gui,int num,int x, int y){
 		super();
 		this.setBackground(Color.WHITE);
@@ -93,14 +85,7 @@ public class GridButton extends JButton implements MouseListener{
 	}
 
 	public void mouseReleased(MouseEvent arg0) {
-<<<<<<< HEAD
 		num = new NumberPopup(gui, thisbutton, this.x, this.y);
 
 	}
 }
-=======
-		NumberPopup num = new NumberPopup(gui, thisbutton, this.x, this.y);
-
-	}
-}
->>>>>>> origin/master

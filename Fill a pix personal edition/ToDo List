@@ -10,7 +10,9 @@ Add a sidepanel with options (Save a file! Import a file! Resize the thing!). Du
 	Save a file will come later...
 
 NumberPopup:
-Add KeyboardListener. Spacebar and backspace will be the "empty" square.
+Finish KeyListener. Spacebar and backspace will be the "empty" square.
+>>namely, parser. Cause we don't want aunt marge's computer to screw itself up on accident due to uncaught errors. Not that it should
+  be a problem, but who knows?
 
 FilePopup:
 Make error message text appear when attempt to press Enter and the file isn't where its supposed to be. On repeated failures, show
@@ -23,3 +25,8 @@ Make the GUI do something when the puzzle is ambiguous. Look for the "Ambiguous 
 
 Windows
 Add an image for buttons and such that will make this look good and not silly.
+
+
+OVERALL:
+Add defaultcloseoperations on all the frames. Dia/Filepopup should instead go backwards back to the Start Frame rather than just close
+  the program

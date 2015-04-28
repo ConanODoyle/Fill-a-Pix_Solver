@@ -12,7 +12,7 @@ public class NumberPopup extends JFrame
   int posY;
   GUI gui;
   GridButton gridbutton;
-  public NumberPopup(GUI gui,int x, int y)
+  public NumberPopup(GUI gui, GridButton button, int x, int y)
   {
     super("Pick One!");
     this.gui = gui;

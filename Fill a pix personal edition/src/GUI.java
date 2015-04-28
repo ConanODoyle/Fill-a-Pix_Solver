@@ -140,7 +140,7 @@ public class GUI {
 	}
 	public void save(String filename) throws IOException
 	{
-		BufferedWriter out = new BufferedWriter(new FileWriter(new File(filename+".fpp")));
+		BufferedWriter out = new BufferedWriter(new FileWriter(new File(filename+".fapsolver")));
 		out.write(gridheight +" "+gridwidth);
 		out.newLine();
 		for(int i =0;i<gridheight;i++)

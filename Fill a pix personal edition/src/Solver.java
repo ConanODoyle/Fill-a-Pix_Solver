@@ -21,7 +21,7 @@ public class Solver {
 					}
 				}
 			}
-			System.out.println("Total squares completed: " + numSquaresCompleted);
+			System.out.println("Total squares completed: " + numSquaresCompleted + " numsq" + totalSquares);
 			if (numSquaresCompleted == totalSquares){
 				break;
 			}

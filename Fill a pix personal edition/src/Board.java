@@ -55,14 +55,17 @@ public class Board {
 	
 	public void solveArray(int[][] array) throws Exception{
 		Square[][] solved = new Square[array.length][array[0].length];
+		int totalSquares = 0;
 		for (int i = 0; i < array.length; i++){
 			for (int j = 0; j < array[i].length; j++){
 				solved[i][j] = new Square(array[i][j]);
+				if (array[i][j] >= 0)
+					totalSquares++;
 			}
 		}
 		
 		printGrid(solved);
-		solved = Solver.solve(solved, solved.length*solved[0].length);
+		solved = Solver.solve(solved, totalSquares);
 		printGrid(solved);
 		this.grid = solved;
 	}

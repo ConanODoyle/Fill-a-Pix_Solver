@@ -28,7 +28,6 @@ public class GUI {
 	{
 		frame = new JFrame("Fill-a-Pix Solver");
 		
-		
 		buttonPanel = new JPanel();
 		puzzPanel = new JPanel();
 		buttonPanel.setLayout(new GridLayout(gridheight,gridwidth));
@@ -45,12 +44,14 @@ public class GUI {
 				grid[j][i] = -1;
 			}
 		}
-		buttonPanel.setPreferredSize(new Dimension(gridwidth*50, gridheight*50));
+		buttonPanel.setPreferredSize(new Dimension(gridwidth*20, gridheight*20));
 		
 		puzzPanel.add(buttonPanel);
 		puzzPanel.add(new SidePanel(this));
+		
 		frame.add(puzzPanel);
 		frame.pack();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
 	

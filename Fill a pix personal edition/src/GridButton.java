@@ -2,7 +2,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 public class GridButton extends JButton implements MouseListener{
@@ -17,12 +19,17 @@ public class GridButton extends JButton implements MouseListener{
 	private GUI gui;
 	private GridButton thisbutton;
 	private NumberPopup num;
+	
 	public GridButton(GUI gui,int num,int x, int y){
 		super();
 		this.setBackground(Color.WHITE);
-		this.setPreferredSize(new Dimension(30, 30));
+		this.setPreferredSize(new Dimension(20, 20));
+		this.setFont(new Font("sans serif", Font.BOLD, 12));
 		this.setForeground(Color.BLACK);
 		this.setFocusable(true);
+		
+		this.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEtchedBorder(), BorderFactory.createEmptyBorder(0, 0, 0, 0)));
+		
 		thisbutton = this;
 		this.x = x;
 		this.y = y;

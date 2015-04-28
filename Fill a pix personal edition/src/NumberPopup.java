@@ -1,4 +1,6 @@
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -29,6 +31,22 @@ public class NumberPopup extends JFrame
             content.add(new NumButton(i, this, gui));
         }
         content.add(new NumButton(-1, this, gui));
+        
+        this.addKeyListener(new KeyListener(){
+	    	@Override
+	    	public void keyPressed(KeyEvent arg0) {	
+	    	}
+	
+	    	@Override
+	    	public void keyReleased(KeyEvent arg0) {
+	    	}
+	
+	    	@Override
+	    	public void keyTyped(KeyEvent arg0) {
+	    		int a = Integer.parseInt(Character.toString(arg0.getKeyChar()));
+	    		numInput(a);
+	    	}
+    	});
         this.pack();
         this.setVisible(true);
     }

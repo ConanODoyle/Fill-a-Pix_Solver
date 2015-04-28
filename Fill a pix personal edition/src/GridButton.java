@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
@@ -13,16 +12,18 @@ public class GridButton extends JButton implements MouseListener{
 	public static final Color FILLED_COLOR = new Color(10, 10, 10);
 	public boolean isClicking = false;
 	public boolean isOver = false;
-	int x;
-	int y;
-	GUI gui;
-	
+	private int x;
+	private int y;
+	private GUI gui;
+	private GridButton thisbutton;
+	private NumberPopup num;
 	public GridButton(GUI gui,int num,int x, int y){
 		super();
 		this.setBackground(Color.WHITE);
-		this.setPreferredSize(new Dimension(15, 15));
+		this.setPreferredSize(new Dimension(30, 30));
 		this.setForeground(Color.BLACK);
 		this.setFocusable(true);
+		thisbutton = this;
 		this.x = x;
 		this.y = y;
 		this.gui = gui;
@@ -48,7 +49,7 @@ public class GridButton extends JButton implements MouseListener{
 			}
 
 			public void mouseReleased(MouseEvent arg0) {
-				NumberPopup num = new NumberPopup(gui,x,y);
+				NumberPopup num = new NumberPopup(gui,thisbutton,x,y);
 				
 			}
 
@@ -84,6 +85,7 @@ public class GridButton extends JButton implements MouseListener{
 	}
 
 	public void mouseReleased(MouseEvent arg0) {
-			NumberPopup num = new NumberPopup(gui,this.x,this.y);
-}
+		num = new NumberPopup(gui, thisbutton, this.x, this.y);
+
+	}
 }

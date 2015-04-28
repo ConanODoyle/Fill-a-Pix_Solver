@@ -3,28 +3,37 @@ public class Solver {
 		Square[][] answer = copyArray(grid);
 		//System.out.println("\n\n" + answer.length + " " + answer[0].length);
 		
-		int completed = 0;
+		int numSquaresCompleted = 0;
+		int lastNumSquaresCompleted = 0;
 		for (int i = 0; i < totalSquares; i++){
 			for (int y = 0; y < answer.length; y++){
 				for (int x = 0; x < answer[y].length; x++){
 					if (answer[y][x].getNumber() == 0 && answer[y][x].isComplete() == false){
 							completeZero(x, y, answer);
 						answer[y][x].setComplete(true);
-						completed ++;
+						numSquaresCompleted ++;
 					} else if (answer[y][x].getNumber() > 0 && answer[y][x].isComplete() == false){
 						boolean complete = completeNumber(x, y, answer);
 						if (complete){
 							answer[y][x].setComplete(true);
-							completed ++; 
+							numSquaresCompleted ++; 
 						}
 					}
 				}
 			}
-			System.out.println("Total squares completed: " + completed);
-			if (completed == totalSquares)
+			System.out.println("Total squares completed: " + numSquaresCompleted);
+			if (numSquaresCompleted == totalSquares){
 				break;
-			else if (completed > totalSquares)
+			}
+			else if (numSquaresCompleted > totalSquares){
 				throw new Exception("wtf");
+			}
+			
+			
+			if (lastNumSquaresCompleted == numSquaresCompleted){
+				System.out.println("Ambiguous puzzle");
+			}
+			lastNumSquaresCompleted = numSquaresCompleted;
 		}
 		
 		return answer;

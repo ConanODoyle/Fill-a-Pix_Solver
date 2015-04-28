@@ -24,6 +24,7 @@ public class StartMenu{
 	private GUI gui;
 	private int isClicking = 0;
 	private int isOverButton = 0;
+	private StartMenu thisthing = this;
 
 	private static final Border FUNSELECTED = BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createEmptyBorder(5, 10, 5, 10));
 	private static final Border FSELECTED = BorderFactory.createCompoundBorder(BorderFactory.createLoweredBevelBorder(), BorderFactory.createEmptyBorder(5, 10, 5, 10));
@@ -124,7 +125,7 @@ public class StartMenu{
 			public void mouseReleased(MouseEvent arg0) {
 				if (isClicking == 2 && isOverButton == 2){
 					System.out.println("grid");
-					DiaPopup popup = new DiaPopup(gui);
+					DiaPopup popup = new DiaPopup(gui,thisthing);
 				}
 				isClicking = 0;	
 				grid.setBorder(GUNSELECTED);

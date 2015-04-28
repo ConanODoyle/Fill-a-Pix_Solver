@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -13,6 +14,8 @@ public class SidePanel extends JPanel{
 	private JPanel panel;
 	private JTextField field;
 	private JButton solvebutton;
+	private JButton savebutton;
+	private JTextField name;
 	private boolean solved;
 	private GUI gui;
 	
@@ -44,8 +47,51 @@ public class SidePanel extends JPanel{
 			public void mouseReleased(MouseEvent arg0) {
 				gui.solve();
 			}
-
+		
+		
 		});
+		this.name = new JTextField("enter filename");
+		this.name.setEditable(true);
+		this.add(this.name);
+		savebutton = new JButton("Save!");
+		savebutton.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				try {
+					gui.save(name.getText());
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}});
+		this.add(savebutton);
 	}
 	public void solved()
 	{

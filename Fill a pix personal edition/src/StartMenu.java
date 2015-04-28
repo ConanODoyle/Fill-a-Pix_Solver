@@ -92,6 +92,8 @@ public class StartMenu{
 			public void mouseReleased(MouseEvent arg0) {
 				if (isClicking == 1 && isOverButton == 1){
 					System.out.println("file");
+					FilePopup fp = new FilePopup(gui);
+					System.out.println("tried");
 				}
 				isClicking = 0;	
 				file.setBorder(FUNSELECTED);

@@ -3,6 +3,13 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -37,7 +44,6 @@ public class GUI {
 		buttonPanel = new JPanel();
 		puzzPanel = new JPanel();
 		buttonPanel.setLayout(new GridLayout(gridheight,gridwidth));
-		grid = new int[this.gridheight][this.gridwidth];
 		gridb = new GridButton[this.gridheight][this.gridwidth];
 		
 		puzzPanel.setBorder(BorderFactory.createTitledBorder("Grid"));
@@ -45,9 +51,8 @@ public class GUI {
 		{
 			for(int j = 0; j < this.gridwidth; j++)
 			{
-				gridb[j][i]=new GridButton(this, -1, i, j);
-				buttonPanel.add(gridb[j][i]);
-				grid[j][i] = -1;
+				gridb[i][j]=new GridButton(this, grid[i][j], i, j);
+				buttonPanel.add(gridb[i][j]);
 			}
 		}
 		buttonPanel.setPreferredSize(new Dimension(gridwidth*20, gridheight*20));
@@ -94,6 +99,13 @@ public class GUI {
 	public void setDimensions(int x, int y){
 		this.gridwidth = x;
 		this.gridheight = y;
+
+		grid = new int[this.gridheight][this.gridwidth];
+		for(int i =0;i<gridheight;i++)
+		{
+			for(int j=0;j<gridwidth;j++)
+				grid[j][i] = -1;
+		}
 	}
 	
 	public void setButtonValue(int x, int y, int value){ //called by NumPanel NumButtons
@@ -118,12 +130,53 @@ public class GUI {
 			{
 				if(solution[i][j].isFilled())
 				{
-					gridb[j][i].invertColors();
+					gridb[i][j].invertColors();
 				}
 			}
 		}
 		side.solved();
 		if(solved) solved = false;
 		else solved = true;
+	}
+	public void save(String filename) throws IOException
+	{
+		BufferedWriter out = new BufferedWriter(new FileWriter(new File(filename+".fpp")));
+		out.write(gridheight +" "+gridwidth);
+		out.newLine();
+		for(int i =0;i<gridheight;i++)
+		{
+			for(int j = 0;j<gridwidth;j++)
+			{
+				out.write(Integer.toString(grid[i][j]));
+				out.write("RSAlol");
+			}
+			out.newLine();
+		}
+		out.flush();
+	}
+	public void load(File file) throws Exception
+	{
+		BufferedReader in = new BufferedReader(new FileReader(file));
+		boolean nulled = true;
+		String size = in.readLine();
+		String[] sizing = size.split(" ");
+		this.gridheight = Integer.parseInt(sizing[0]);
+		this.gridwidth = Integer.parseInt(sizing[1]);
+		this.grid = new int[gridheight][gridwidth];
+		int n=0;
+		while(nulled)
+		{
+			String grids = in.readLine();
+			if(grids !=null)
+			{
+				String[] line = grids.split("RSAlol");
+				for(int i =0;i<line.length;i++ )
+					this.grid[n][i] = Integer.parseInt(line[i]);
+			}
+		
+			else nulled = false;
+			n++;
+		}
+		openGUI();
 	}
 }

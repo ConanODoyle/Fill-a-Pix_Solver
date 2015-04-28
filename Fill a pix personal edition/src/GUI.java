@@ -148,12 +148,13 @@ public class GUI {
 			for(int j = 0;j<gridwidth;j++)
 			{
 				out.write(Integer.toString(grid[i][j]));
-				out.write("RSAlol");
+				out.write(" ");
 			}
 			out.newLine();
 		}
 		out.flush();
 	}
+	
 	public void load(File file) throws Exception
 	{
 		BufferedReader in = new BufferedReader(new FileReader(file));
@@ -169,7 +170,7 @@ public class GUI {
 			String grids = in.readLine();
 			if(grids !=null)
 			{
-				String[] line = grids.split("RSAlol");
+				String[] line = grids.split(" ");
 				for(int i =0;i<line.length;i++ )
 					this.grid[n][i] = Integer.parseInt(line[i]);
 			}
